@@ -1,11 +1,12 @@
 # PAK
 
-The best application for people
 
+Application to improve our health
 
 # Technologies
 
 - Python
+
 
 
 # Authors
