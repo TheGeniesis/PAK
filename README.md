@@ -1,13 +1,10 @@
 # PAK
 
-
 Application to improve our health
 
 # Technologies
 
 - Python
-
-
 
 # Authors
 - Grzegorz Matuszak
