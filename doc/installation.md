@@ -17,3 +17,8 @@
 
 - sudo apt install python3-pip
 - sudo mv /usr/bin/pip3 /usr/bin/pip
+
+### Install required software
+- pip install plyer # notification
+- pip install apscheduler # scheduler
+- pip install SQLAlchemy # db tools
