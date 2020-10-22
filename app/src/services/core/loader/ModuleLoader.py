@@ -11,7 +11,9 @@ class ModuleLoader:
             exit(1)
         module = import_module(module_name)
 
-        class_name = module_name.rsplit('.', 1)[-1]
+        # class_name = module_name.rsplit('.', 1)[-1]
+        # For view we have the same name. Since this class was created for this one spec. case I commented dynamic name (file == class) for simpler implementation
+        class_name = "Ui_MainWindow"
 
         try:
             return getattr(module, class_name)
