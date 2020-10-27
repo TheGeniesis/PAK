@@ -133,3 +133,4 @@ dmypy.json
 
 #db
 jobs.sqlite
+click-a-boo.db
