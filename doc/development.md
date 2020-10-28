@@ -39,3 +39,6 @@
 
 # Useful commands
 - Generate py from ui `pyuic5 -x ui/MainView.ui -o app/src/views/MainView.py`
+
+# Mockups
+- [Adobe](https://xd.adobe.com/view/2e1cf53e-92ed-4b14-afd1-b0833650f5c8-7b4f/)
