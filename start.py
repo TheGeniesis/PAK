@@ -13,7 +13,6 @@ config.init({
     "path": os.getcwd()
 })
 
-
 # @todo run db creation in listener
 def initDb():
     from app.src.models.BaseModel import BaseModel
