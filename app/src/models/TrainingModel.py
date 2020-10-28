@@ -1,8 +1,9 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from app.src.models.BaseModel import BaseModel
 
-Base = declarative_base()
+base = BaseModel()
+Base = base.getDeclarative()
 
 
 class TrainingModel(Base):
@@ -40,4 +41,3 @@ class TrainingModel(Base):
         DateTime(),
         nullable=False
     )
-

@@ -1,8 +1,9 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from app.src.models.BaseModel import BaseModel
 
-Base = declarative_base()
+base = BaseModel()
+Base = base.getDeclarative()
 
 
 class TrainingUrlModel(Base):
@@ -23,5 +24,9 @@ class TrainingUrlModel(Base):
         nullable=False
     )
 
-    trainings = relationship("app.src.models.TrainingModel", back_populates="trainingUrl")
+    description = Column(
+        String(1000),
+        nullable=False
+    )
 
+    trainings = relationship("app.src.models.TrainingModel", back_populates="trainingUrl")

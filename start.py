@@ -2,6 +2,10 @@ from app.src.controller.MainViewController import MainViewController
 
 from app.src.listeners.ExerciseTimeListener import ExerciseTimeListener
 from app.src.services.core.config.Config import Config
+
+# have to be here even it's not used
+from app.src.models import TrainingModel, TrainingUrlModel
+
 import os
 
 config = Config()
@@ -10,24 +14,16 @@ config.init({
 })
 
 
-def execute():
-    from sqlalchemy import create_engine, MetaData
-    from app.src.services.core.config.Config import Config
+# @todo run db creation in listener
+def initDb():
+    from app.src.models.BaseModel import BaseModel
+
+    baseModel = BaseModel()
+    declarative = baseModel.getDeclarative()
+    declarative.metadata.create_all(baseModel.getEngine())
 
 
-    config = Config()
-    config = config.getConfig()
-    engine = create_engine(config["DATABASE"]["PATH"], echo=True)
-
-    meta = MetaData()
-    meta.tables.values()
-
-    from app.src.models import TrainingModel, TrainingUrlModel
-
-    meta.create_all(engine)
-
-
-execute()
+initDb()
 
 # @todo use normal event system
 a = ExerciseTimeListener()

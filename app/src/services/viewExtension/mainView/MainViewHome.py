@@ -1,16 +1,12 @@
+from app.src.queries.TrainingQuery import TrainingQuery
+
+
 class MainViewHome:
     def configViewMain(self, view):
         view.main_text.setText("aVe Joseph")
-        from sqlalchemy.sql import select
-        from sqlalchemy import create_engine
-        engine = create_engine('sqlite:///click-a-boo.db', echo=True)
 
-        from app.src.models.TrainingModel import TrainingModel
+        trainingQuery = TrainingQuery()
 
-        # training = TrainingModel()
-
-        # s = select([training])
-        # conn = engine.connect()
-        # result = conn.execute(s)
-        # print (result)
-        # view.training_today.setText()
+        view.training_today.setText(str(trainingQuery.findTodayTrainingQuantity()))
+        view.training_this_week.setText(str(trainingQuery.findWeekTrainingQuantity()))
+        view.training_this_month.setText(str(trainingQuery.findMonthTrainingQuantity()))

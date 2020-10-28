@@ -41,4 +41,4 @@
 - Generate py from ui `pyuic5 -x ui/MainView.ui -o app/src/views/MainView.py`
 
 # Mockups
-- [Adobe](https://xd.adobe.com/view/58ec34d0-bdb9-48e5-4ff2-9323147e4448-2edd/screen/4d0b6bb8-7a5e-40d9-ab21-65cd9f8995f1/)
+- [Adobe](https://xd.adobe.com/view/2e1cf53e-92ed-4b14-afd1-b0833650f5c8-7b4f/)
