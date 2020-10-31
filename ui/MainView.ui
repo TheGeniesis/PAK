@@ -17,17 +17,17 @@
    <widget class="QStackedWidget" name="page_main">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>0</y>
+      <x>220</x>
+      <y>30</y>
       <width>631</width>
       <height>561</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="view_main">
-     <widget class="QLabel" name="training_today">
+     <widget class="QLabel" name="main_training_today">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -66,7 +66,7 @@
        <string>trenings this week</string>
       </property>
      </widget>
-     <widget class="QLabel" name="training_this_week">
+     <widget class="QLabel" name="main_training_this_week">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -79,7 +79,7 @@
        <string>TextLabel</string>
       </property>
      </widget>
-     <widget class="QLabel" name="training_this_month">
+     <widget class="QLabel" name="main_training_this_month">
       <property name="geometry">
        <rect>
         <x>380</x>
@@ -133,7 +133,7 @@
        <string>Do you want to do exercies now</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="b_exercise_yes">
+     <widget class="QPushButton" name="b_video_exercise_yes">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -146,7 +146,7 @@
        <string>Yes</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="b_exercise_no">
+     <widget class="QPushButton" name="b_video_exercise_no">
       <property name="geometry">
        <rect>
         <x>320</x>
@@ -169,7 +169,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="b_play_video">
+     <widget class="QPushButton" name="b_video_play">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -180,6 +180,124 @@
       </property>
       <property name="text">
        <string>Play</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="view_exercise_declined">
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>120</y>
+        <width>461</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Why did you decline exercieses?</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="f_exercise_declined_comment">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>260</y>
+        <width>391</width>
+        <height>181</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_exercise_declined_confirm">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>490</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Confirm</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="view_exercise_grade">
+     <widget class="QPushButton" name="b_exercise_grade_1">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>380</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_exercise_grade_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>390</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_exercise_grade_3">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>380</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_exercise_grade_4">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>390</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_exercise_grade_5">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>380</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>160</y>
+        <width>371</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Grade exercise</string>
       </property>
      </widget>
     </widget>
