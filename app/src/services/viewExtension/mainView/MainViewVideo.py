@@ -5,13 +5,14 @@ class MainViewVideo:
     def configViewVideo(self, view):
         view.video_box = QVideoWidget
 
-        view.b_play_video.setEnabled(True)
-        view.b_play_video.clicked.connect(self.loadHtml)
+        view.b_video_play.setEnabled(True)
+        view.b_video_play.clicked.connect(self.loadHtml)
+
+        view.b_video_exercise_yes.clicked.connect(lambda: view.page_main.setCurrentWidget(view.view_exercise_grade))
+        view.b_video_exercise_no.clicked.connect(lambda: view.page_main.setCurrentWidget(view.view_exercise_declined))
 
     def loadHtml(self):
         import webview
-        import time
-        print("adasdad")
         window = webview.create_window('Load HTML Example', html="""
         <html>
           <body>

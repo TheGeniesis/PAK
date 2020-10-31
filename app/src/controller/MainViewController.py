@@ -3,6 +3,8 @@ from app.src.services.viewExtension.mainView.MainViewHome import MainViewHome
 from app.src.services.viewExtension.mainView.MainViewSettings import MainViewSettings
 from app.src.services.viewExtension.mainView.MainViewVideo import MainViewVideo
 from app.src.services.viewExtension.mainView.MainViewSummary import MainViewSummary
+from app.src.services.viewExtension.mainView.MainViewExerciseDeclined import MainViewExerciseDeclined
+from app.src.services.viewExtension.mainView.MainViewExerciseGrade import MainViewExerciseGrade
 
 
 class MainViewController(AbstractController):
@@ -17,20 +19,23 @@ class MainViewController(AbstractController):
         view.nav_video.clicked.connect(lambda: view.page_main.setCurrentWidget(view.view_video))
         view.nav_summary.clicked.connect(lambda: view.page_main.setCurrentWidget(view.view_summary))
 
-        # Create view for main
+        # create view
         main_view_home = MainViewHome()
         main_view_home.configViewMain(view)
 
-        # Create view for settings
         main_view_settings = MainViewSettings()
         main_view_settings.configViewSettings(view)
 
-        # Create view for video
-        main_view_settings = MainViewVideo()
-        main_view_settings.configViewVideo(view)
+        main_view_video = MainViewVideo()
+        main_view_video.configViewVideo(view)
 
-        # Create view for summary
-        main_view_settings = MainViewSummary()
-        main_view_settings.configViewSummary(view)
+        main_view_summary = MainViewSummary()
+        main_view_summary.configViewSummary(view)
+
+        main_view_exercise_grade = MainViewExerciseGrade()
+        main_view_exercise_grade.configViewExerciseGrade(view)
+
+        main_view_exercise_declined = MainViewExerciseDeclined()
+        main_view_exercise_declined.configViewExerciseDeclined(view)
 
         return self.render()
