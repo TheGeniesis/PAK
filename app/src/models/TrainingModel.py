@@ -25,7 +25,7 @@ class TrainingModel(Base):
     )
 
     trainingUrlId = Column(Integer(), ForeignKey('training_url.id'))
-    trainingUrl = relationship("app.src.models.TrainingUrlModel", back_populates="trainings")
+    trainingUrl = relationship("TrainingUrlModel", back_populates="trainings")
 
     date = Column(
         DateTime(),
