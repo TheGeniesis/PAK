@@ -57,6 +57,9 @@ class Ui_MainWindow(object):
         self.video_box = QtWidgets.QWidget(self.view_video)
         self.video_box.setGeometry(QtCore.QRect(100, 50, 471, 221))
         self.video_box.setObjectName("video_box")
+        self.video_id = QtWidgets.QLabel(self.video_box)
+        self.video_id.setGeometry(QtCore.QRect(180, 40, 67, 17))
+        self.video_id.setObjectName("video_id")
         self.b_video_play = QtWidgets.QPushButton(self.view_video)
         self.b_video_play.setGeometry(QtCore.QRect(100, 280, 89, 25))
         self.b_video_play.setObjectName("b_video_play")
@@ -128,7 +131,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.page_main.setCurrentIndex(0)
+        self.page_main.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -144,6 +147,7 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "Do you want to do exercies now"))
         self.b_video_exercise_yes.setText(_translate("MainWindow", "Yes"))
         self.b_video_exercise_no.setText(_translate("MainWindow", "No"))
+        self.video_id.setText(_translate("MainWindow", "1"))
         self.b_video_play.setText(_translate("MainWindow", "Play"))
         self.label_7.setText(_translate("MainWindow", "Why did you decline exercieses?"))
         self.b_exercise_declined_confirm.setText(_translate("MainWindow", "Confirm"))

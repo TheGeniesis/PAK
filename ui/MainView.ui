@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="view_main">
      <widget class="QLabel" name="main_training_today">
@@ -168,6 +168,19 @@
         <height>221</height>
        </rect>
       </property>
+      <widget class="QLabel" name="video_id">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>67</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QPushButton" name="b_video_play">
       <property name="geometry">

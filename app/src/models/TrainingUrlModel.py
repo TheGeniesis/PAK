@@ -29,4 +29,4 @@ class TrainingUrlModel(Base):
         nullable=False
     )
 
-    trainings = relationship("app.src.models.TrainingModel", back_populates="trainingUrl")
+    trainings = relationship("TrainingModel", back_populates="trainingUrl")
