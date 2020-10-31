@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1106</width>
+    <height>769</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -119,6 +119,70 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="view_video">
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>340</y>
+        <width>281</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Do you want to do exercies now</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_exercise_yes">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>460</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Yes</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_exercise_no">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>460</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>No</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="video_box" native="true">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>50</y>
+        <width>471</width>
+        <height>221</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="b_play_video">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>280</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Play</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="view_settings">
      <widget class="QLabel" name="label_4">
       <property name="geometry">
@@ -131,6 +195,21 @@
       </property>
       <property name="text">
        <string>Settings</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="view_summary">
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>100</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Summary</string>
       </property>
      </widget>
     </widget>
@@ -161,13 +240,39 @@
      <string>Settings</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="nav_video">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Video</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="nav_summary">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>150</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Summary</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1106</width>
      <height>22</height>
     </rect>
    </property>
