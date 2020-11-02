@@ -61,7 +61,6 @@ class TrainingQuery:
         startDay = startDay.strftime("%Y-%m-%d 00:00:00")
 
         tomorrow = date.today() + datetime.timedelta(days=1)
-        print(tomorrow)
         endDay = tomorrow.strftime("%Y-%m-%d 00:00:00")
         query = session.query("app.src.models.TrainingModel")
         query = query.filter(
