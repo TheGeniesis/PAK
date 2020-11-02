@@ -16,10 +16,10 @@ class FixtureLoader:
 
         trainingUrl = session.query(TrainingUrlModel).first()
         if trainingUrl is None:
-            # get all paths we use join to fix problem with "/" per os
-            path = Config().getConfig()["path"] + os.path.join("app", "src", "fixtures")
-            module_loader = ModuleLoader()
 
+            # get all paths we use join to fix problem with "/" per os
+            path = os.path.join(Config().getConfig()["path"], "app", "src", "fixtures")
+            module_loader = ModuleLoader()
             for file in glob(os.path.join(path, "*.py")):
                 # we have filename = /path/filename.py, we
                 # first we remove path
@@ -31,4 +31,5 @@ class FixtureLoader:
                 # we have class_name = filename
 
                 module = module_loader.load(class_name, "app.src.fixtures")
-                module.generate()
+
+                module().generate()
