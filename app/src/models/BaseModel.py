@@ -20,7 +20,7 @@ class BaseModel(metaclass=SingletonMeta):
     def getConnection(self):
         if self.__connection is None:
             engine = self.getEngine()
-            self.__connection = engine.connect()
+            self.__connection = engine.connect(check_same_thread=False)
 
         return self.__connection
 
@@ -29,6 +29,6 @@ class BaseModel(metaclass=SingletonMeta):
         if self.__engine is None:
             config = Config()
             config = config.getConfig()
-            self.__engine = create_engine(config["DATABASE"]["PATH"], echo=True)
+            self.__engine = create_engine(config["DATABASE"]["PATH"], echo=False)
 
         return self.__engine
