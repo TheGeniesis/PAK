@@ -30,3 +30,12 @@ class BasicScheduler(metaclass=SingletonMeta):
         self.__scheduler.start()
 
         return self.__scheduler
+
+
+    def rescheduleJob(self, time: float, id: str, callback):
+        scheduler = self.getScheduler()
+        job = scheduler.get_job(id)
+        if job:
+            job.remove()
+
+        scheduler.add_job(callback, 'interval', minutes=time, id=id)
