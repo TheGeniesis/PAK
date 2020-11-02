@@ -30,7 +30,6 @@ class TrainingQuery:
         )
         return query.with_entities(func.count()).scalar()
 
-    @property
     def findWeekTrainingQuantity(self):
         base = BaseModel()
 
