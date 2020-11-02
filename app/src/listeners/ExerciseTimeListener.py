@@ -6,28 +6,21 @@ from app.src.services.core.scheduler.BasicScheduler import BasicScheduler
 class ExerciseTimeListener:
     def onKernelStart(self):
         scheduler = BasicScheduler()
-        scheduler = scheduler.getScheduler()
         # @todo take it from db
         time = 30
 
         # Inform one minute before
-        self.rescheduleJob(scheduler, time - 1, "exercise_block_scn_0")
+        scheduler.rescheduleJob(time - 1, "exercise_block_scn_0", self.notify)
         # inform a while before
-        self.rescheduleJob(scheduler, time - 0.05, "exercise_block_scn_1")
+        scheduler.rescheduleJob(time - 0.05, "exercise_block_scn_1", self.notify)
         # @todo block screen
-        self.rescheduleJob(scheduler, time, "exercise_block_scn_2")
+        scheduler.rescheduleJob(time, "exercise_block_scn_2", self.notify)
 
     def notify(self):
         notification.notify(
-            title='Exercise time is comming',
+            title='Exercise time is coming',
             message='Here is the message',
             app_name='Click-a-boo',
             app_icon='path/to/the/icon.' + ('ico' if platform == 'win' else 'png')
         )
 
-    def rescheduleJob(self, scheduler, time: float, id: str):
-        job = scheduler.get_job(id)
-        if job:
-            job.remove()
-
-        scheduler.add_job(self.notify, 'interval', minutes=time, id=id)

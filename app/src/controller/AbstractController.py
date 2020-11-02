@@ -14,7 +14,7 @@ class AbstractController(metaclass=ABCMeta):
 
     def prepareView(self, file_name: str):
         loader = ModuleLoader()
-        view = loader.load(file_name, "app.src.views")
+        view = loader.load(file_name, "app.src.views", "Ui_MainWindow")
 
         if isinstance(self.__current_view, QtWidgets.QMainWindow):
             self.__current_view.hide()
