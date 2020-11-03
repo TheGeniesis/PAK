@@ -24,3 +24,4 @@
 - pip install apscheduler # scheduler
 - pip install SQLAlchemy # db tools
 - pip install pywebview # yt player
+- pip install -U event-notifier # event dispatcher

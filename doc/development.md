@@ -7,11 +7,11 @@
 1. Create new controller/function in controller e.g `def index():`
 1. Add this urgent lines to function
     ```python
-        def index(self):
-            file_name = "MainView" # File name from `app/src/views`
-            view = self.prepareView(file_name) # build view, we can use `view` variable to modify view elements 
-        
-            return self.render() # show view
+    def index(self):
+        file_name = "MainView" # File name from `app/src/views`
+        view = self.prepareView(file_name) # build view, we can use `view` variable to modify view elements 
+    
+        return self.render() # show view
     ```
 1. Run `python start.py` to start application 
 
@@ -36,6 +36,29 @@
     main_view_settings.configViewSettings(view)
     ```
 1. Modify new view as you wish
+
+
+## Add new listener
+
+1. Create file in `app/src/listeners` directory
+1. Create class inside the file with the same name
+1. Add method
+1. Add config method for loader
+1. Run event `EventDispatcher().getDispatcher().raise_event("onKernelStart")`
+
+Eg. class
+```python
+class MyListener:
+    def eventList(self):
+        return {
+            "onKernelStart": { # event name, method will be triggered when subscriber raise it
+                "action": self.myFunction, #send method as a callback
+                "priority": -200 # priority, some listeners should be called earlier than another (e.g. db init should be first)
+            }
+        }
+    def myFunction(self):
+        pass
+```
 
 # Useful commands
 - Generate py from ui `pyuic5 -x ui/MainView.ui -o app/src/views/MainView.py`
