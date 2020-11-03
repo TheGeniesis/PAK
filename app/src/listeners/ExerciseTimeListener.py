@@ -8,6 +8,15 @@ from app.src.services.core.scheduler.BasicScheduler import BasicScheduler
 
 
 class ExerciseTimeListener:
+
+    def eventList(self):
+        return {
+            "onKernelStart": {
+                "action": self.onKernelStart,
+                "priority": 0
+            }
+        }
+
     def onKernelStart(self):
         scheduler = BasicScheduler()
 

@@ -21,15 +21,6 @@ class FixtureLoader:
             path = os.path.join(Config().getConfig()["path"], "app", "src", "fixtures")
             module_loader = ModuleLoader()
             for file in glob(os.path.join(path, "*.py")):
-                # we have filename = /path/filename.py, we
-                # first we remove path
-                # os.sep returns correct "/" per os
-                class_name = file.rsplit(os.sep, 1)[-1]
-                # we have class_name = filename.py
-                # and now we remove extension
-                class_name = class_name[:-3]
-                # we have class_name = filename
-
-                module = module_loader.load(class_name, "app.src.fixtures")
+                module = module_loader.loadFromDir(file, "app.src.fixtures")
 
                 module().generate()
