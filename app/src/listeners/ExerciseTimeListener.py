@@ -31,8 +31,10 @@ class ExerciseTimeListener:
 
         time = setting.exerciseInterval
 
-        # Inform one minute before
-        scheduler.rescheduleJob(time - 1, "exercise_block_scn_0", self.notify)
+        if time > 1:
+            # Inform one minute before
+            scheduler.rescheduleJob(time - 1, "exercise_block_scn_0", self.notify)
+
         # inform a while before
         scheduler.rescheduleJob(time - 0.05, "exercise_block_scn_1", self.notify)
         # @todo block screen

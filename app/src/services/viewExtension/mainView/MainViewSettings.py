@@ -20,14 +20,14 @@ class MainViewSettings:
 
         view.f_settings_exercise_interval.setMinimum(1)
         view.f_settings_exercise_interval.setMaximum(90)
-        view.f_settings_exercise_interval.setValue(setting.exerciseInterval / 60)
+        view.f_settings_exercise_interval.setValue(setting.exerciseInterval)
 
         view.b_settings_confirm.clicked.connect(lambda elem: self.save(view, setting))
 
     def save(self, view: Ui_MainWindow, setting: SettingModel):
         setting.checkAbsence = view.f_settings_check_absence.isChecked()
         setting.startWithSystem = view.f_settings_start_with_os.isChecked()
-        setting.exerciseInterval = view.f_settings_exercise_interval.value() * 60
+        setting.exerciseInterval = view.f_settings_exercise_interval.value()
 
         base = BaseModel()
         Session = sessionmaker(bind=base.getEngine())
