@@ -16,4 +16,3 @@ class Config(metaclass=SingletonMeta):
             config.read(self.__config["path"] + '/' + '.env.ini')
 
             self.__config = {**self.__config, **config}
-
