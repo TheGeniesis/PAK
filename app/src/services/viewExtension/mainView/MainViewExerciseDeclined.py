@@ -1,6 +1,7 @@
 import datetime
 import textwrap
 
+from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
 
 from app.src.models.BaseModel import BaseModel
@@ -21,7 +22,9 @@ class MainViewExerciseDeclined:
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        trainingUrl = session.query(TrainingUrlModel).filter(TrainingUrlModel.id == int(view.video_id.text())).first()
+        trainingUrl = session.query(TrainingUrlModel).filter(TrainingUrlModel.id == int(view.video_id)).first()
+        lastRecord = session.query(func.max(TrainingUrlModel.priority)).scalar()
+        trainingUrl.priority = lastRecord + 1
 
         comment = textwrap.shorten(view.f_exercise_declined_comment.toPlainText(), 100)
 
@@ -30,5 +33,6 @@ class MainViewExerciseDeclined:
         session.commit()
 
         EventDispatcher().getDispatcher().raise_event("onHomeViewReload", view=view)
+        EventDispatcher().getDispatcher().raise_event("onVideoViewReload", view=view)
 
         view.page_main.setCurrentWidget(view.view_main)

@@ -1,25 +1,57 @@
 from PyQt5.QtMultimediaWidgets import QVideoWidget
+from sqlalchemy.orm import sessionmaker
+from PyQt5.QtCore import QUrl
+from app.src.models.BaseModel import BaseModel
+from app.src.models.TrainingUrlModel import TrainingUrlModel
+from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
+
+from app.src.views.MainView import Ui_MainWindow
 
 
 class MainViewVideo:
-    def configViewVideo(self, view):
-        view.video_box = QVideoWidget
+    view: Ui_MainWindow
+
+    def configViewVideo(self, view: Ui_MainWindow):
+        self.view = view
+        view.video_box = QVideoWidget()
+
+        base = BaseModel()
+        Session = sessionmaker(bind=base.getEngine())
+        session = Session()
+
+        trainingUrl = session.query(TrainingUrlModel).order_by(TrainingUrlModel.priority).first()
+
+        view.video_id = trainingUrl.id
+        view.video_media_player = QMediaPlayer(None, QMediaPlayer.VideoSurface)
+
+        view.f_video_length.setRange(0, 0)
+        view.f_video_length.sliderMoved.connect(self.setPosition)
+
+        view.video_media_player.setMedia(
+            QMediaContent(QUrl.fromLocalFile(trainingUrl.url)))
+
+        view.video_media_player.setVideoOutput(view.video_box)
+        view.video_media_player.positionChanged.connect(self.positionChanged)
+        view.video_media_player.durationChanged.connect(self.durationChanged)
 
         view.b_video_play.setEnabled(True)
-        view.b_video_play.clicked.connect(self.loadHtml)
+        view.b_video_play.clicked.connect(lambda: self.play(view))
 
         view.b_video_exercise_yes.clicked.connect(lambda: view.page_main.setCurrentWidget(view.view_exercise_grade))
         view.b_video_exercise_no.clicked.connect(lambda: view.page_main.setCurrentWidget(view.view_exercise_declined))
 
-    def loadHtml(self):
-        import webview
-        window = webview.create_window('Load HTML Example', html="""
-        <html>
-          <body>
-             <iframe width="420" height="315"
-            src="https://www.youtube.com/watch?v=-Sh_fggFNFA&autoplay=1&mute=1">
-            </iframe> 
-          </body>
-        </html>
-                """, fullscreen=True)
-        webview.start(print, window)
+    def play(self, view: Ui_MainWindow):
+        if view.video_media_player.state() == QMediaPlayer.PlayingState:
+            view.video_media_player.pause()
+            return
+
+        view.video_media_player.play()
+
+    def positionChanged(self, position):
+        self.view.f_video_length.setValue(position)
+
+    def durationChanged(self, duration):
+        self.view.f_video_length.setRange(0, duration)
+
+    def setPosition(self, position):
+        self.view.video_media_player.setPosition(position)
