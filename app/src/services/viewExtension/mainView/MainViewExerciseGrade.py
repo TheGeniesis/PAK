@@ -1,3 +1,4 @@
+from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
 
 from app.src.models.TrainingModel import TrainingModel
@@ -23,12 +24,15 @@ class MainViewExerciseGrade:
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        trainingUrl = session.query(TrainingUrlModel).filter(TrainingUrlModel.id == int(view.video_id.text())).first()
+        trainingUrl = session.query(TrainingUrlModel).filter(TrainingUrlModel.id == int(view.video_id)).first()
+        lastRecord = session.query(func.max(TrainingUrlModel.priority)).scalar()
+        trainingUrl.priority = lastRecord + 1
 
         ins = TrainingModel(grade=grade, date=now, createdAt=now, updatedAt=now, trainingUrl=trainingUrl)
         session.add(ins)
         session.commit()
 
         EventDispatcher().getDispatcher().raise_event("onHomeViewReload", view=view)
+        EventDispatcher().getDispatcher().raise_event("onVideoViewReload", view=view)
 
         view.page_main.setCurrentWidget(view.view_main)

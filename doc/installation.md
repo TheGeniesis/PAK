@@ -13,6 +13,7 @@
 - sudo apt-get install pyqt5-dev-tools
 - sudo apt-get install qttools5-dev-tools
 - sudo apt-get install python3-pyqt5.qtmultimedia
+- sudo apt-get install libqt5multimedia5-plugins
 
 ### install pip
 
@@ -23,5 +24,4 @@
 - pip install plyer # notification
 - pip install apscheduler # scheduler
 - pip install SQLAlchemy # db tools
-- pip install pywebview # yt player
 - pip install -U event-notifier # event dispatcher

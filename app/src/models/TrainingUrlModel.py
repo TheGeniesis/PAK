@@ -29,4 +29,9 @@ class TrainingUrlModel(Base):
         nullable=False
     )
 
+    priority = Column(
+        Integer,
+        nullable=False
+    )
+
     trainings = relationship("TrainingModel", back_populates="trainingUrl")
