@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from app.src.models.BaseModel import BaseModel
 from app.src.models.TrainingModel import TrainingModel
 from app.src.models.TrainingUrlModel import TrainingUrlModel
+from app.src.services.core.dispatcher.EventDispatcher import EventDispatcher
 from app.src.views.MainView import Ui_MainWindow
 
 
@@ -27,5 +28,7 @@ class MainViewExerciseDeclined:
         ins = TrainingModel(comment=comment, date=now, createdAt=now, updatedAt=now, trainingUrl=trainingUrl)
         session.add(ins)
         session.commit()
+
+        EventDispatcher().getDispatcher().raise_event("onHomeViewReload", view=view)
 
         view.page_main.setCurrentWidget(view.view_main)

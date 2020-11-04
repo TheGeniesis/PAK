@@ -12,14 +12,17 @@ class ExerciseTimeListener:
     def eventList(self):
         return {
             "onKernelStart": {
-                "action": self.onKernelStart,
+                "action": self.setupNotifications,
                 "priority": 0
-            }
+            },
+            "onSettingsUpdate": {
+                "action": self.setupNotifications,
+                "priority": 0
+            },
         }
 
-    def onKernelStart(self):
+    def setupNotifications(self):
         scheduler = BasicScheduler()
-
         base = BaseModel()
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
@@ -42,4 +45,3 @@ class ExerciseTimeListener:
             app_name='Click-a-boo',
             app_icon='path/to/the/icon.' + ('ico' if platform == 'win' else 'png')
         )
-

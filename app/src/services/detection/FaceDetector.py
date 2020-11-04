@@ -1,9 +1,9 @@
-
 import cv2
 import sys
 import numpy
 import time
 from app.src.services.core.config.Config import Config
+
 
 class FaceDetector():
 
@@ -11,14 +11,14 @@ class FaceDetector():
         config = Config()
         config = config.getConfig()
         config['path']
-        #Loads the cascade for face detection
+        # Loads the cascade for face detection
         cascPath = config['path'] + "/storage/haarcascade_frontalface_default.xml"
         faceCascade = cv2.CascadeClassifier(cascPath)
 
-        #Captures the stream from laptop camera
+        # Captures the stream from laptop camera
         video_capture = cv2.VideoCapture(0)
 
-        check_length = 10 
+        check_length = 10
         start_time = time.time()
 
         while True:
@@ -38,7 +38,7 @@ class FaceDetector():
                 print("User not detected")
             elif type(faces) == numpy.ndarray:
                 print("User detected")
-            
+
             current_time = time.time()
             if int(current_time - start_time) > check_length:
                 break

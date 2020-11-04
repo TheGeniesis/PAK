@@ -10,8 +10,10 @@ class TrainingUrlFixture:
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        ins = TrainingUrlModel(name="back exer", url="https://www.youtube.com/watch?v=Ddgmo7NFu1o", description="some descirption how to do exercise")
+        ins = TrainingUrlModel(name="back exer", url="https://www.youtube.com/watch?v=Ddgmo7NFu1o",
+                               description="some descirption how to do exercise")
         session.add(ins)
-        ins = TrainingUrlModel(name="other exerd", url="https://www.youtube.com/watch?v=5nZ8n1vUqVU", description="Some desc about exercise")
+        ins = TrainingUrlModel(name="other exerd", url="https://www.youtube.com/watch?v=5nZ8n1vUqVU",
+                               description="Some desc about exercise")
         session.add(ins)
         session.commit()

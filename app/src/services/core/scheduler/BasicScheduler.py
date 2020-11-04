@@ -31,7 +31,6 @@ class BasicScheduler(metaclass=SingletonMeta):
 
         return self.__scheduler
 
-
     def rescheduleJob(self, time: float, id: str, callback):
         scheduler = self.getScheduler()
         job = scheduler.get_job(id)
