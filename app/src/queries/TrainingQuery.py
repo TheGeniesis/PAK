@@ -23,7 +23,7 @@ class TrainingQuery:
         query = session.query("app.src.models.TrainingModel")
         query = query.filter(
             and_(
-                TrainingModel.grade is not None,
+                TrainingModel.grade != None,
                 TrainingModel.createdAt >= startDay,
                 TrainingModel.createdAt < endDay,
             )
@@ -44,7 +44,7 @@ class TrainingQuery:
         query = session.query("app.src.models.TrainingModel")
         query = query.filter(
             and_(
-                TrainingModel.grade is not None,
+                TrainingModel.grade != None,
                 TrainingModel.createdAt >= startDay,
                 TrainingModel.createdAt < endDay,
             )
@@ -65,7 +65,7 @@ class TrainingQuery:
         query = session.query("app.src.models.TrainingModel")
         query = query.filter(
             and_(
-                TrainingModel.grade is not None,
+                TrainingModel.grade != None,
                 TrainingModel.createdAt >= startDay,
                 TrainingModel.createdAt < endDay,
             )
