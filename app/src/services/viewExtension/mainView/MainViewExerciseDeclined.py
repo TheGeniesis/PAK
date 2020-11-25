@@ -28,7 +28,7 @@ class MainViewExerciseDeclined:
 
         comment = textwrap.shorten(view.f_exercise_declined_comment.toPlainText(), 100)
 
-        ins = TrainingModel(comment=comment, date=now, createdAt=now, updatedAt=now, trainingUrl=trainingUrl)
+        ins = TrainingModel(comment=comment, date=now, createdAt=now, updatedAt=now, trainingUrl=trainingUrl, grade=None)
         session.add(ins)
         session.commit()
 

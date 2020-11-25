@@ -36,4 +36,4 @@ class MainViewSettings:
         session.merge(setting)
         session.commit()
 
-        EventDispatcher().getDispatcher().raise_event("onSettingsUpdate")
+        EventDispatcher().getDispatcher().raise_event("onSettingsUpdate", view=view)

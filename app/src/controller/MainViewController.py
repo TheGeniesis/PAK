@@ -1,4 +1,5 @@
 from app.src.controller.AbstractController import AbstractController
+from app.src.services.core.dispatcher.EventDispatcher import EventDispatcher
 from app.src.services.viewExtension.mainView.MainViewHome import MainViewHome
 from app.src.services.viewExtension.mainView.MainViewSettings import MainViewSettings
 from app.src.services.viewExtension.mainView.MainViewVideo import MainViewVideo
@@ -37,5 +38,7 @@ class MainViewController(AbstractController):
 
         main_view_exercise_declined = MainViewExerciseDeclined()
         main_view_exercise_declined.configViewExerciseDeclined(view)
+
+        EventDispatcher().getDispatcher().raise_event("onNotify", view=view)
 
         return self.render()
