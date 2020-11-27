@@ -39,6 +39,6 @@ class MainViewController(AbstractController):
         main_view_exercise_declined = MainViewExerciseDeclined()
         main_view_exercise_declined.configViewExerciseDeclined(view)
 
-        EventDispatcher().getDispatcher().raise_event("onNotify", view=view)
+        EventDispatcher().getDispatcher().raise_event("onNotify")
 
         return self.render()
