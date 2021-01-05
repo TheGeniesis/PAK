@@ -3,6 +3,8 @@ from PyQt5 import QtWidgets
 import sys
 from app.src.services.core.loader.ModuleLoader import ModuleLoader
 
+from app.src.listeners.ExerciseTimeListener import viewDict
+
 
 class AbstractController(metaclass=ABCMeta):
     def __init__(self):
@@ -24,6 +26,8 @@ class AbstractController(metaclass=ABCMeta):
 
         ui = view()
         ui.setupUi(self.__current_view)
+
+        viewDict["ui"] = ui
 
         return ui
 

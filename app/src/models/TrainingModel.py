@@ -16,7 +16,8 @@ class TrainingModel(Base):
     )
     grade = Column(
         Integer(),
-        nullable=True
+        nullable=True,
+        default=None
     )
 
     comment = Column(

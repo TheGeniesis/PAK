@@ -1,15 +1,15 @@
-from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.schedulers.qt import QtScheduler
 from app.src.services.core.SingletonMeta import SingletonMeta
 
 
 class BasicScheduler(metaclass=SingletonMeta):
     __scheduler = None
 
-    def getScheduler(self) -> BackgroundScheduler:
-        if isinstance(self.__scheduler, BackgroundScheduler):
+    def getScheduler(self) -> QtScheduler:
+        if isinstance(self.__scheduler, QtScheduler):
             return self.__scheduler
 
-        self.__scheduler = BackgroundScheduler({
+        self.__scheduler = QtScheduler({
             'apscheduler.jobstores.default': {
                 'type': 'sqlalchemy',
                 'url': 'sqlite:///jobs.sqlite'

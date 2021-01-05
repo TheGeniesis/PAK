@@ -6,12 +6,17 @@ from app.src.models.BaseModel import BaseModel
 from app.src.models.SettingModel import SettingModel
 from app.src.services.core.scheduler.BasicScheduler import BasicScheduler
 
+viewDict = {}
+
+
+def getView(view_name):
+    return viewDict.get(view_name)
+
 
 class ExerciseTimeListener:
-
     def eventList(self):
         return {
-            "onKernelStart": {
+            "onNotify": {
                 "action": self.setupNotifications,
                 "priority": 0
             },
@@ -30,8 +35,7 @@ class ExerciseTimeListener:
         setting = session.query(SettingModel).first()
 
         time = setting.exerciseInterval
-
-        if time > 1:
+        if time > 2:
             # Inform one minute before
             scheduler.rescheduleJob(time - 1, "exercise_block_scn_0", self.notify)
 
@@ -40,6 +44,9 @@ class ExerciseTimeListener:
         # @todo block screen
         scheduler.rescheduleJob(time, "exercise_block_scn_2", self.notify)
 
+        scheduler.getScheduler().add_job(self.changeView, 'interval', minutes=time, id="exercise_block_scn_3",
+                                         replace_existing=True, )
+
     def notify(self):
         notification.notify(
             title='Exercise time is coming',
@@ -47,3 +54,7 @@ class ExerciseTimeListener:
             app_name='Click-a-boo',
             app_icon='path/to/the/icon.' + ('ico' if platform == 'win' else 'png')
         )
+
+    def changeView(self):
+        view = getView("ui")
+        view.page_main.setCurrentWidget(view.view_video)
