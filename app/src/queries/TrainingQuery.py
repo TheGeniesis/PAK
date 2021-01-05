@@ -10,22 +10,22 @@ from app.src.models.BaseModel import BaseModel
 class TrainingQuery:
 
     def findTodayTrainingQuantity(self):
-        base = BaseModel()
+        return self.findTrainingQuantityForDay(date.today())
 
+    def findTrainingQuantityForDay(self, start: datetime):
+        base = BaseModel()
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        today = date.today()
-        startDay = today.strftime("%Y-%m-%d 00:00:00")
-
-        tomorrow = today + datetime.timedelta(days=1)
-        endDay = tomorrow.strftime("%Y-%m-%d 00:00:00")
+        start_day = start.strftime("%Y-%m-%d 00:00:00")
+        end = start + datetime.timedelta(days=1)
+        end_day = end.strftime("%Y-%m-%d 00:00:00")
         query = session.query("app.src.models.TrainingModel")
         query = query.filter(
             and_(
                 TrainingModel.grade != None,
-                TrainingModel.createdAt >= startDay,
-                TrainingModel.createdAt < endDay,
+                TrainingModel.createdAt >= start_day,
+                TrainingModel.createdAt < end_day,
             )
         )
         return query.with_entities(func.count()).scalar()
@@ -36,17 +36,17 @@ class TrainingQuery:
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        startDay = date.today() - datetime.timedelta(days=date.today().isoweekday() % 7)
-        startDay = startDay.strftime("%Y-%m-%d 00:00:00")
+        start_date = date.today() - datetime.timedelta(days=date.today().isoweekday() % 7)
+        start_day = start_date.strftime("%Y-%m-%d 00:00:00")
 
         tomorrow = date.today() + datetime.timedelta(days=1)
-        endDay = tomorrow.strftime("%Y-%m-%d 00:00:00")
+        end_day = tomorrow.strftime("%Y-%m-%d 00:00:00")
         query = session.query("app.src.models.TrainingModel")
         query = query.filter(
             and_(
                 TrainingModel.grade != None,
-                TrainingModel.createdAt >= startDay,
-                TrainingModel.createdAt < endDay,
+                TrainingModel.createdAt >= start_day,
+                TrainingModel.createdAt < end_day,
             )
         )
         return query.with_entities(func.count()).scalar()
@@ -57,17 +57,17 @@ class TrainingQuery:
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        startDay = date.today().replace(day=1)
-        startDay = startDay.strftime("%Y-%m-%d 00:00:00")
+        start_date = date.today().replace(day=1)
+        start_day = start_date.strftime("%Y-%m-%d 00:00:00")
 
         tomorrow = date.today() + datetime.timedelta(days=1)
-        endDay = tomorrow.strftime("%Y-%m-%d 00:00:00")
+        end_day = tomorrow.strftime("%Y-%m-%d 00:00:00")
         query = session.query("app.src.models.TrainingModel")
         query = query.filter(
             and_(
                 TrainingModel.grade != None,
-                TrainingModel.createdAt >= startDay,
-                TrainingModel.createdAt < endDay,
+                TrainingModel.createdAt >= start_day,
+                TrainingModel.createdAt < end_day,
             )
         )
         return query.with_entities(func.count()).scalar()

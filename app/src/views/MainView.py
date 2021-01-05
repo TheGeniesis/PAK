@@ -134,6 +134,15 @@ class Ui_MainWindow(object):
         self.label_6 = QtWidgets.QLabel(self.view_summary)
         self.label_6.setGeometry(QtCore.QRect(330, 100, 67, 17))
         self.label_6.setObjectName("label_6")
+        self.summary_calendar = QtWidgets.QCalendarWidget(self.view_summary)
+        self.summary_calendar.setGeometry(QtCore.QRect(100, 10, 456, 171))
+        self.summary_calendar.setObjectName("summary_calendar")
+        self.label_10 = QtWidgets.QLabel(self.view_summary)
+        self.label_10.setGeometry(QtCore.QRect(80, 250, 67, 17))
+        self.label_10.setObjectName("label_10")
+        self.summary_exercises_amount = QtWidgets.QLabel(self.view_summary)
+        self.summary_exercises_amount.setGeometry(QtCore.QRect(80, 280, 67, 17))
+        self.summary_exercises_amount.setObjectName("summary_exercises_amount")
         self.page_main.addWidget(self.view_summary)
         self.nav_main = QtWidgets.QPushButton(self.centralwidget)
         self.nav_main.setGeometry(QtCore.QRect(10, 10, 89, 25))
@@ -157,7 +166,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.page_main.setCurrentIndex(1)
+        self.page_main.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -189,6 +198,8 @@ class Ui_MainWindow(object):
         self.f_settings_start_with_os.setText(_translate("MainWindow", "Start with system"))
         self.b_settings_confirm.setText(_translate("MainWindow", "Confirm"))
         self.label_6.setText(_translate("MainWindow", "Summary"))
+        self.label_10.setText(_translate("MainWindow", "Exercises:"))
+        self.summary_exercises_amount.setText(_translate("MainWindow", "0"))
         self.nav_main.setText(_translate("MainWindow", "Homepage"))
         self.nav_settings.setText(_translate("MainWindow", "Settings"))
         self.nav_video.setText(_translate("MainWindow", "Video"))

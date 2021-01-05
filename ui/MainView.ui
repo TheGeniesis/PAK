@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="view_main">
      <widget class="QLabel" name="main_training_today">
@@ -439,6 +439,42 @@
       </property>
       <property name="text">
        <string>Summary</string>
+      </property>
+     </widget>
+     <widget class="QCalendarWidget" name="summary_calendar">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>10</y>
+        <width>456</width>
+        <height>171</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>250</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exercises:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="summary_exercises_amount">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>280</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
       </property>
      </widget>
     </widget>
