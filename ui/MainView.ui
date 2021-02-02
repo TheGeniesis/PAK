@@ -482,8 +482,8 @@
    <widget class="QPushButton" name="nav_main">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>50</x>
+      <y>20</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -495,7 +495,7 @@
    <widget class="QPushButton" name="nav_settings">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>50</x>
       <y>60</y>
       <width>89</width>
       <height>25</height>
@@ -508,8 +508,8 @@
    <widget class="QPushButton" name="nav_video">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>100</y>
+      <x>50</x>
+      <y>130</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -521,8 +521,8 @@
    <widget class="QPushButton" name="nav_summary">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>150</y>
+      <x>50</x>
+      <y>190</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -538,7 +538,7 @@
      <x>0</x>
      <y>0</y>
      <width>1106</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
