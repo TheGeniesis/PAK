@@ -16,15 +16,18 @@
 1. Run `python start.py` to start application 
 
 ## Generating .py from .ui on Windows 10
-Directory for pyuic5
-[Microsoft Store] C:\Users\you\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_##########\LocalCache\local-packages\Python39(your-version)\Scripts
-or
-[Desktop Standard] C:\Users\you\AppData\Roaming\Python\Python38(your-version)\Scripts
-or
-[Anaconda] Anaconda3\Library\bin
+1. Directory for pyuic5
+1. [Microsoft Store] 
+`C:\Users\you\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_##########\LocalCache\local-packages\Python39(your-version)\Scripts`
+1. or
+1. [Desktop Standard]
+`C:\Users\you\AppData\Roaming\Python\Python38(your-version)\Scripts`
+1. or
+1. [Anaconda]
+`Anaconda3\Library\bin`
 
-Use CMD for \Scripts directory then
-pyuic5 -x MainView.ui -o MainView.py
+1. Use CMD for \Scripts directory then
+1. pyuic5 -x MainView.ui -o MainView.py
 
 
 ## Add now "subpage" (like settings, video)
