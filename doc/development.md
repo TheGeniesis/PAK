@@ -17,17 +17,17 @@
 
 ## Generating .py from .ui on Windows 10
 1. Directory for pyuic5
-1. [Microsoft Store] 
+[Microsoft Store] 
 `C:\Users\you\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_##########\LocalCache\local-packages\Python39(your-version)\Scripts`
-1. or
-1. [Desktop Standard]
+or
+[Desktop Standard]
 `C:\Users\you\AppData\Roaming\Python\Python38(your-version)\Scripts`
-1. or
-1. [Anaconda]
+or
+[Anaconda]
 `Anaconda3\Library\bin`
 
 1. Use CMD for \Scripts directory then
-1. pyuic5 -x MainView.ui -o MainView.py
+`pyuic5 -x MainView.ui -o MainView.py`
 
 
 ## Add now "subpage" (like settings, video)
