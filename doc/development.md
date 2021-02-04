@@ -17,13 +17,13 @@
 
 ## Generating .py from .ui on Windows 10
 1. Directory for pyuic5
-[Microsoft Store] 
+.[Microsoft Store] 
 `C:\Users\you\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_##########\LocalCache\local-packages\Python39(your-version)\Scripts`
-or
-[Desktop Standard]
+.or
+.[Desktop Standard]
 `C:\Users\you\AppData\Roaming\Python\Python38(your-version)\Scripts`
-or
-[Anaconda]
+.or
+.[Anaconda]
 `Anaconda3\Library\bin`
 
 1. Use CMD for \Scripts directory then
