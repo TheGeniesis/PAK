@@ -11,8 +11,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -209,13 +207,10 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.b_exercise_grade_1.setFont(font)
-        self.b_exercise_grade_1.setStyleSheet("image url(:/Star/png/star.png);\n"
-"border-style: outset;\n"
-"border-width: 1px;\n"
-"border-radius: 10px;\n"
-"border-color: black;\n"
-"font: bold14px;\n"
-"background-color: rgb(255, 255, 255);")
+        self.b_exercise_grade_1.setStyleSheet("image: url(:/faces/png/dissapointed.png);\n"
+"background: transparent;\n"
+"border: none;")
+        self.b_exercise_grade_1.setText("")
         self.b_exercise_grade_1.setObjectName("b_exercise_grade_1")
         self.b_exercise_grade_2 = QtWidgets.QPushButton(self.view_exercise_grade)
         self.b_exercise_grade_2.setGeometry(QtCore.QRect(275, 290, 71, 71))
@@ -226,8 +221,10 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.b_exercise_grade_2.setFont(font)
-        self.b_exercise_grade_2.setStyleSheet("border-width: 1px;\n"
-"border-radius: 10px;")
+        self.b_exercise_grade_2.setStyleSheet("image: url(:/faces/png/sad.png);\n"
+"background: transparent;\n"
+"border: none;")
+        self.b_exercise_grade_2.setText("")
         self.b_exercise_grade_2.setObjectName("b_exercise_grade_2")
         self.b_exercise_grade_3 = QtWidgets.QPushButton(self.view_exercise_grade)
         self.b_exercise_grade_3.setGeometry(QtCore.QRect(415, 290, 71, 71))
@@ -238,8 +235,10 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.b_exercise_grade_3.setFont(font)
-        self.b_exercise_grade_3.setStyleSheet("border-width: 1px;\n"
-"border-radius: 10px;")
+        self.b_exercise_grade_3.setStyleSheet("image: url(:/faces/png/surprised.png);\n"
+"background: transparent;\n"
+"border: none;")
+        self.b_exercise_grade_3.setText("")
         self.b_exercise_grade_3.setObjectName("b_exercise_grade_3")
         self.b_exercise_grade_4 = QtWidgets.QPushButton(self.view_exercise_grade)
         self.b_exercise_grade_4.setGeometry(QtCore.QRect(555, 290, 71, 71))
@@ -250,9 +249,9 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.b_exercise_grade_4.setFont(font)
-        self.b_exercise_grade_4.setStyleSheet("background: transparent;\n"
-"border: none;\n"
-"image: url(:/faces/png/dissapointed.png);")
+        self.b_exercise_grade_4.setStyleSheet("image: url(:/faces/png/smiling.png);\n"
+"background: transparent;\n"
+"border: none;")
         self.b_exercise_grade_4.setText("")
         self.b_exercise_grade_4.setObjectName("b_exercise_grade_4")
         self.b_exercise_grade_5 = QtWidgets.QPushButton(self.view_exercise_grade)
@@ -264,8 +263,10 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.b_exercise_grade_5.setFont(font)
-        self.b_exercise_grade_5.setStyleSheet("border-width: 1px;\n"
-"border-radius: 10px;")
+        self.b_exercise_grade_5.setStyleSheet("image: url(:/faces/png/happy.png);\n"
+"background: transparent;\n"
+"border: none;")
+        self.b_exercise_grade_5.setText("")
         self.b_exercise_grade_5.setObjectName("b_exercise_grade_5")
         self.label_8 = QtWidgets.QLabel(self.view_exercise_grade)
         self.label_8.setGeometry(QtCore.QRect(140, 80, 621, 51))
@@ -301,7 +302,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.label_9.setFont(font)
         self.label_9.setStyleSheet("border-width: 1px;\n"
-"border-radius: 10px;\n"
+"border-radius: 0px;\n"
 "border-color: black;")
         self.label_9.setObjectName("label_9")
         self.f_settings_check_absence = QtWidgets.QCheckBox(self.view_settings)
@@ -314,7 +315,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.f_settings_check_absence.setFont(font)
         self.f_settings_check_absence.setStyleSheet("border-width: 1px;\n"
-"border-radius: 10px;\n"
+"border-radius: 0px;\n"
 "border-color: black;")
         self.f_settings_check_absence.setObjectName("f_settings_check_absence")
         self.f_settings_start_with_os = QtWidgets.QCheckBox(self.view_settings)
@@ -327,7 +328,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.f_settings_start_with_os.setFont(font)
         self.f_settings_start_with_os.setStyleSheet("border-width: 1px;\n"
-"border-radius: 10px;\n"
+"border-radius: 0px;\n"
 "border-color: black;")
         self.f_settings_start_with_os.setObjectName("f_settings_start_with_os")
         self.b_settings_confirm = QtWidgets.QPushButton(self.view_settings)
@@ -397,19 +398,19 @@ class Ui_MainWindow(object):
         self.summary_exercises_amount.setObjectName("summary_exercises_amount")
         self.page_main.addWidget(self.view_summary)
         self.nav_settings = QtWidgets.QPushButton(self.centralwidget)
-        self.nav_settings.setGeometry(QtCore.QRect(20, 80, 121, 51))
-        self.nav_settings.setStyleSheet("image: url(:/Settings/png/Settings.png);\n"
-"border-style: outset;\n"
+        self.nav_settings.setGeometry(QtCore.QRect(10, 80, 131, 51))
+        self.nav_settings.setStyleSheet("border-style: outset;\n"
 "border-width: 1px;\n"
 "border-radius: 10px;\n"
 "border-color: black;\n"
 "font: bold14px;\n"
+"image: url(:/Settings/png/Settings.png);\n"
 "background-color: rgb(255, 255, 255);")
         self.nav_settings.setText("")
         self.nav_settings.setObjectName("nav_settings")
         self.nav_video = QtWidgets.QPushButton(self.centralwidget)
-        self.nav_video.setGeometry(QtCore.QRect(20, 140, 121, 51))
-        self.nav_video.setStyleSheet("image: url(:/Video/png/video.png);\n"
+        self.nav_video.setGeometry(QtCore.QRect(10, 140, 131, 51))
+        self.nav_video.setStyleSheet("image: url(:/Video/png/video2.png);\n"
 "border-style: outset;\n"
 "border-width: 1px;\n"
 "border-radius: 10px;\n"
@@ -419,8 +420,8 @@ class Ui_MainWindow(object):
         self.nav_video.setText("")
         self.nav_video.setObjectName("nav_video")
         self.nav_summary = QtWidgets.QPushButton(self.centralwidget)
-        self.nav_summary.setGeometry(QtCore.QRect(20, 200, 121, 51))
-        self.nav_summary.setStyleSheet("image: url(:/Summary/png/summary.png);\n"
+        self.nav_summary.setGeometry(QtCore.QRect(10, 200, 131, 51))
+        self.nav_summary.setStyleSheet("image: url(:/Summary/png/summary2.png);\n"
 "border-style: outset;\n"
 "border-width: 1px;\n"
 "border-radius: 10px;\n"
@@ -430,9 +431,9 @@ class Ui_MainWindow(object):
         self.nav_summary.setText("")
         self.nav_summary.setObjectName("nav_summary")
         self.nav_main = QtWidgets.QPushButton(self.centralwidget)
-        self.nav_main.setGeometry(QtCore.QRect(20, 20, 121, 51))
+        self.nav_main.setGeometry(QtCore.QRect(10, 20, 131, 51))
         self.nav_main.setStyleSheet("border-style: outset;\n"
-"image: url(:/Main/png/home.png);\n"
+"image: url(:/Main/png/home2.png);\n"
 "border-width: 1px;\n"
 "border-radius: 10px;\n"
 "border-color: black;\n"
@@ -461,10 +462,6 @@ class Ui_MainWindow(object):
         self.video_id.setText(_translate("MainWindow", "1"))
         self.label_7.setText(_translate("MainWindow", "                                                Why did you decline exercieses?"))
         self.b_exercise_declined_confirm.setText(_translate("MainWindow", "Confirm"))
-        self.b_exercise_grade_1.setText(_translate("MainWindow", "1"))
-        self.b_exercise_grade_2.setText(_translate("MainWindow", "2"))
-        self.b_exercise_grade_3.setText(_translate("MainWindow", "3"))
-        self.b_exercise_grade_5.setText(_translate("MainWindow", "5"))
         self.label_8.setText(_translate("MainWindow", "                   Grade exercise"))
         self.label_9.setText(_translate("MainWindow", "Exercise interval"))
         self.f_settings_check_absence.setText(_translate("MainWindow", "Check absence"))
@@ -472,7 +469,8 @@ class Ui_MainWindow(object):
         self.b_settings_confirm.setText(_translate("MainWindow", "Confirm"))
         self.label_10.setText(_translate("MainWindow", "       Exercises:"))
         self.summary_exercises_amount.setText(_translate("MainWindow", "0"))
-
+import png1_rc
+import png2_rc
 
 
 if __name__ == "__main__":
