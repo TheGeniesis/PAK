@@ -27,3 +27,8 @@ class SettingModel(Base):
         Integer,
         nullable=False
     )
+
+    timeAbsence = Column(
+        Integer,
+        nullable=False
+    )

@@ -10,6 +10,6 @@ class SettingFixture:
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        ins = SettingModel(startWithSystem=False, checkAbsence=True, exerciseInterval=30)
+        ins = SettingModel(startWithSystem=False, checkAbsence=True, exerciseInterval=30, timeAbsence=0)
         session.add(ins)
         session.commit()
