@@ -63,5 +63,21 @@ class MyListener:
 # Useful commands
 - Generate py from ui `pyuic5 -x ui/MainView.ui -o app/src/views/MainView.py`
 
+## Generating .py from .ui using Windows 10
+1. Directory for pyuic5
+- [Microsoft Store]`C:\Users\you\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_##########\LocalCache\local-packages\Python39(your-version)\Scripts`
+- [Desktop Standard] `C:\Users\you\AppData\Roaming\Python\Python3(your-version)\Scripts`
+- [Anaconda]   `Anaconda3\Library\bin`
+1. Use CMD for \Scripts or \bin directory then
+`pyuic5 -x MainView.ui -o MainView.py`
+1. Put .py file into the views folder.
+1. If needed import .qrc (below) 
+
+## Importing .qrc file using Windows 10
+1. Get \Scripts or \bin directory then use CMD:
+- 'pyrcc5 sample.qrc -o sample.py'
+1. Put .py file into the project folder.
+1. import sample.py file into your MainView.
+
 # Mockups
 - [Adobe](https://xd.adobe.com/view/2e1cf53e-92ed-4b14-afd1-b0833650f5c8-7b4f/)
