@@ -24,6 +24,12 @@ class ExerciseTimeListener:
                 "action": self.setupNotifications,
                 "priority": 0
             },
+            # dodany nowy event, natomiast nie jesteśmy pewni gdzie jeszcze
+            # należy go dodać
+            "onTimerReset": {
+                "action": self.setupNotifications,
+                "priority": 0
+            },
         }
 
     def setupNotifications(self):

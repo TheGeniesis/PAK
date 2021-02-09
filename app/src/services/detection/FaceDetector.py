@@ -33,5 +33,4 @@ class FaceDetector():
         if type(faces) == tuple:
             return False
         #User has been detected
-        elif type(faces) == numpy.ndarray:
-            return True
+        return True

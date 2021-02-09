@@ -21,7 +21,13 @@ class AbsenceTimerListener:
             "onSettingsUpdate": {
                 "action": self.setupCamera,
                 "priority": 0
+            },
+
+            "onKernelStart": {
+                "action": self.onKernelStart,
+                "priority": 0
             }
+
         }
 
     def setupCamera(self):
@@ -34,8 +40,10 @@ class AbsenceTimerListener:
 
         if setting.checkAbsence:
             scheduler.rescheduleJob(time, "absence_timer",
-                                    self.runAbsenceTimer)
-
+            self.runAbsenceTimer)
+            # tutaj nie jestem pewien czy nie powinno się dodawać
+            # rescheduleJob().add_job bo w zasadzie add_job
+            # realizuje się wewnątrz tej funkcji
         else:
             scheduler.getScheduler().remove_job(id="absence_timer")
 
@@ -51,7 +59,8 @@ class AbsenceTimerListener:
             setting.timeAbsence = 0
 
         if setting.timeAbsence == 3:
-            # kod na reset głównego timera
+            # odpalenie drugiego listenera, który wszystko resetuje i kod biegnie od nowa
+            ExerciseTimeListener.setupNotifications()
             setting.timeAbsence = 0
 
         session.merge(setting)
