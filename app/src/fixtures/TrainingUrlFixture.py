@@ -1,3 +1,5 @@
+import os
+
 from sqlalchemy.orm import sessionmaker
 
 from app.src.models.BaseModel import BaseModel
@@ -12,7 +14,7 @@ class TrainingUrlFixture:
         session = Session()
         config = Config().getConfig()
 
-        ins = TrainingUrlModel(name="Spot March", url="%s/video/march.mp4" % config["path"],
+        ins = TrainingUrlModel(name="Spot March", url=os.path.join(Config().getConfig()["path"], 'video','Triceps.mp4'),
                                description="Marching in place exercise", priority=1)
         session.add(ins)
         ins = TrainingUrlModel(name="Forward Bending", url="%s/video/bending.mp4" % config["path"],
