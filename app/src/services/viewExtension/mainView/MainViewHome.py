@@ -3,6 +3,7 @@ from app.src.queries.TrainingQuery import TrainingQuery
 
 class MainViewHome:
     def configViewMain(self, view):
+        view.main_text.setText("aVe Joseph")
 
         trainingQuery = TrainingQuery()
 

@@ -1,12 +1,9 @@
-import os
-
 from plyer.utils import platform
 from plyer import notification
 from sqlalchemy.orm import sessionmaker
 
 from app.src.models.BaseModel import BaseModel
 from app.src.models.SettingModel import SettingModel
-from app.src.services.core.config.Config import Config
 from app.src.services.core.scheduler.BasicScheduler import BasicScheduler
 
 viewDict = {}
@@ -55,8 +52,7 @@ class ExerciseTimeListener:
             title='Exercise time is coming',
             message='Here is the message',
             app_name='Click-a-boo',
-            app_icon=os.path.join(Config().getConfig()["path"],'app','src','views','test.') + ('ico' if platform == 'win' else 'png')
-
+            app_icon='path/to/the/icon.' + ('ico' if platform == 'win' else 'png')
         )
 
     def changeView(self):
