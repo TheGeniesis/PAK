@@ -7,6 +7,7 @@ from app.src.models.TrainingUrlModel import TrainingUrlModel
 from app.src.services.core.config.Config import Config
 
 
+
 class TrainingUrlFixture:
     def generate(self):
         base = BaseModel()
@@ -14,7 +15,7 @@ class TrainingUrlFixture:
         session = Session()
         config = Config().getConfig()
 
-        ins = TrainingUrlModel(name="Spot March", url=os.path.join(Config().getConfig()["path"], 'video','Triceps.mp4'),
+        ins = TrainingUrlModel(name="Spot March", url=os.path.join(Config().getConfig()["path"], 'video','Triceps.wmv'),
                                description="Marching in place exercise", priority=1)
         session.add(ins)
         ins = TrainingUrlModel(name="Forward Bending", url="%s/video/bending.mp4" % config["path"],
