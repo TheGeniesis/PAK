@@ -7,7 +7,7 @@ from app.src.services.core.config.Config import Config
 
 class FaceDetector():
 
-    def detect(self):
+    def isUserDetected(self):
         config = Config()
         config = config.getConfig()
         config['path']
@@ -18,29 +18,19 @@ class FaceDetector():
         # Captures the stream from laptop camera
         video_capture = cv2.VideoCapture(0)
 
-        check_length = 10
-        start_time = time.time()
+        # Capture frame-by-frame
+        ret, frame = video_capture.read()
+        # Colours the image grey, so that it can be recognized by opencv
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-        while True:
-            # Capture frame-by-frame
-            ret, frame = video_capture.read()
-            # Colours the image grey, so that it can be recognized by opencv
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-            faces = faceCascade.detectMultiScale(
-                gray,
-                scaleFactor=1.1,
-                minNeighbors=5,
-                minSize=(30, 30)
-            )
-
-            if type(faces) == tuple:
-                print("User not detected")
-            elif type(faces) == numpy.ndarray:
-                print("User detected")
-
-            current_time = time.time()
-            if int(current_time - start_time) > check_length:
-                break
-
-            time.sleep(1)
+        faces = faceCascade.detectMultiScale(
+            gray,
+            scaleFactor=1.1,
+            minNeighbors=5,
+            minSize=(30, 30)
+        )
+        #User has not been detected
+        if type(faces) == tuple:
+            return False
+        #User has been detected
+        return True
