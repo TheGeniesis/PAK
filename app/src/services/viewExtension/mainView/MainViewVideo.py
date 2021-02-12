@@ -21,7 +21,6 @@ class MainViewVideo:
 
         trainingUrl = session.query(TrainingUrlModel).order_by(TrainingUrlModel.priority).first()
 
-        print(trainingUrl.url)
         view.video_id = trainingUrl.id
         view.video_media_player = QMediaPlayer(None, QMediaPlayer.VideoSurface)
 
@@ -49,7 +48,6 @@ class MainViewVideo:
         view.video_media_player.play()
 
     def positionChanged(self, position):
-        print('spdoipoda')
         self.view.f_video_length.setValue(position)
 
     def durationChanged(self, duration):
