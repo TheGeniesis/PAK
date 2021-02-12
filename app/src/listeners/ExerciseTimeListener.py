@@ -59,7 +59,7 @@ class ExerciseTimeListener:
     def notify(self):
         notification.notify(
             title='Exercise time is coming',
-            message='Here is the message',
+            message='Prepare for that!',
             app_name='Click-a-boo',
             app_icon=os.path.join(Config().getConfig()["path"],'app','src','views','test.') + ('ico' if platform == 'win' else 'png')
 

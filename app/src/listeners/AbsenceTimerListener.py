@@ -45,13 +45,16 @@ class AbsenceTimerListener:
             # rescheduleJob().add_job bo w zasadzie add_job
             # realizuje się wewnątrz tej funkcji
         else:
-            scheduler.getScheduler().get_job("absence_timer").remove()
+            job = scheduler.getScheduler().get_job("absence_timer")
+            if job:
+                job.remove()
 
     def runAbsenceTimer(self, setting=SettingModel):
 
         base = BaseModel()
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
+        setting = session.query(SettingModel).first()
 
         face_detector = FaceDetector()
         if not face_detector.isUserDetected():
