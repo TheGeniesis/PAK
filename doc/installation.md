@@ -25,3 +25,4 @@
 - pip install apscheduler # scheduler
 - pip install SQLAlchemy # db tools
 - pip install -U event-notifier # event dispatcher
+- pip install opencv-python # face detector

@@ -1,11 +1,11 @@
 from plyer.utils import platform
 from plyer import notification
 from sqlalchemy.orm import sessionmaker
+
 from app.src.models.BaseModel import BaseModel
 from app.src.models.SettingModel import SettingModel
 from app.src.services.core.scheduler.BasicScheduler import BasicScheduler
 from app.src.services.detection import FaceDetector
-from app.src.views.MainView import Ui_MainWindow
 from app.src.services.core.dispatcher.EventDispatcher import EventDispatcher
 
 viewDict = {}
@@ -24,7 +24,7 @@ class AbsenceTimerListener:
             },
 
             "onKernelStart": {
-                "action": self.onKernelStart,
+                "action": self.setupCamera,
                 "priority": 0
             }
 
@@ -45,7 +45,7 @@ class AbsenceTimerListener:
             # rescheduleJob().add_job bo w zasadzie add_job
             # realizuje się wewnątrz tej funkcji
         else:
-            scheduler.getScheduler().remove_job(id="absence_timer")
+            scheduler.getScheduler().get_job("absence_timer").remove()
 
     def runAbsenceTimer(self, setting=SettingModel):
 
@@ -60,7 +60,7 @@ class AbsenceTimerListener:
 
         if setting.timeAbsence == 3:
             # odpalenie drugiego listenera, który wszystko resetuje i kod biegnie od nowa
-            ExerciseTimeListener.setupNotifications()
+            EventDispatcher().getDispatcher().raise_event("onSettingsUpdate")
             setting.timeAbsence = 0
 
         session.merge(setting)
