@@ -13,4 +13,6 @@ class VideoViewReloadListener:
 
     def reload(self, view: Ui_MainWindow):
         main_view_video = MainViewVideo()
+        #quick fix for video (second video didin't run
+        main_view_video.configViewVideo(view)
         main_view_video.configViewVideo(view)
