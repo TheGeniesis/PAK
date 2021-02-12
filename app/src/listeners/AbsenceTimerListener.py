@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from app.src.models.BaseModel import BaseModel
 from app.src.models.SettingModel import SettingModel
 from app.src.services.core.scheduler.BasicScheduler import BasicScheduler
-from app.src.services.detection import FaceDetector
+from app.src.services.detection.FaceDetector import FaceDetector
 from app.src.services.core.dispatcher.EventDispatcher import EventDispatcher
 
 viewDict = {}
@@ -53,7 +53,8 @@ class AbsenceTimerListener:
         Session = sessionmaker(bind=base.getEngine())
         session = Session()
 
-        if not FaceDetector.isUserDetected():
+        face_detector = FaceDetector()
+        if not face_detector.isUserDetected():
             setting.timeAbsence += 1
         else:
             setting.timeAbsence = 0

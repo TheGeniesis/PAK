@@ -5,7 +5,7 @@ import time
 from app.src.services.core.config.Config import Config
 
 
-class FaceDetector():
+class FaceDetector:
 
     def isUserDetected(self):
         config = Config()
