@@ -92,16 +92,6 @@ class Ui_MainWindow(object):
 "color: rgb(112, 112, 112);")
         self.main_training_this_month.setAlignment(QtCore.Qt.AlignCenter)
         self.main_training_this_month.setObjectName("main_training_this_month")
-        self.main_text = QtWidgets.QLabel(self.view_main)
-        self.main_text.setEnabled(False)
-        self.main_text.setGeometry(QtCore.QRect(190, 120, 691, 51))
-        self.main_text.setStyleSheet("image: url(:/hello/png/Hello there!.png);\n"
-"background: transparent;\n"
-"border-style: transparent;\n"
-"border: none;")
-        self.main_text.setText("")
-        self.main_text.setAlignment(QtCore.Qt.AlignCenter)
-        self.main_text.setObjectName("main_text")
         self.label = QtWidgets.QLabel(self.view_main)
         self.label.setGeometry(QtCore.QRect(230, 230, 200, 70))
         self.label.setStyleSheet("image: url(:/treningtoday/png/Done exercises today.png);\n"
@@ -112,6 +102,14 @@ class Ui_MainWindow(object):
         self.label.setText("")
         self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label.setObjectName("label")
+        self.label_15 = QtWidgets.QLabel(self.view_main)
+        self.label_15.setGeometry(QtCore.QRect(188, 110, 691, 101))
+        self.label_15.setStyleSheet("border: none;\n"
+"background: transparent;\n"
+"font: 28pt \"Segoe WP SemiLight\";\n"
+"color: rgb(112, 112, 112);")
+        self.label_15.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_15.setObjectName("label_15")
         self.page_main.addWidget(self.view_main)
         self.view_video = QtWidgets.QWidget()
         self.view_video.setObjectName("view_video")
@@ -159,7 +157,8 @@ class Ui_MainWindow(object):
         self.video_widget.setGeometry(QtCore.QRect(230, 30, 611, 351))
         self.video_widget.setStyleSheet("border-style: outset;\n"
 "border-width: 2px;\n"
-"border-radius: 10px;")
+"border-radius: 10px;\n"
+"border-color: #707070;")
         self.video_widget.setObjectName("video_widget")
         self.f_video_length = QtWidgets.QSlider(self.video_widget)
         self.f_video_length.setGeometry(QtCore.QRect(200, 260, 211, 20))
@@ -169,7 +168,8 @@ class Ui_MainWindow(object):
         self.video_box = QtWidgets.QWidget(self.video_widget)
         self.video_box.setGeometry(QtCore.QRect(20, 20, 571, 221))
         self.video_box.setStyleSheet("border-width: 2px;\n"
-"border-radius: 0px;")
+"border-radius: 0px;\n"
+"border-color: #707070;")
         self.video_box.setObjectName("video_box")
         self.video_id = QtWidgets.QLabel(self.video_box)
         self.video_id.setGeometry(QtCore.QRect(290, 40, 51, 51))
@@ -183,9 +183,21 @@ class Ui_MainWindow(object):
         self.video_media_player.setObjectName("video_media_player")
         self.b_video_play = QtWidgets.QPushButton(self.video_widget)
         self.b_video_play.setGeometry(QtCore.QRect(10, 290, 591, 41))
-        self.b_video_play.setStyleSheet("image: url(:/playbutton/png/play.jpg);\n"
-"border:transparent;")
+        self.b_video_play.setStyleSheet("#b_video_play {\n"
+"image: url(:/playstop/png/Group 1.png);\n"
+"border:transparent;\n"
+"}\n"
+"\n"
+"#b_video_play:pressed  {\n"
+"image: url(:/playstop/png/Group 2.png);\n"
+"border: transparent;\n"
+"}\n"
+"")
         self.b_video_play.setText("")
+        self.b_video_play.setCheckable(False)
+        self.b_video_play.setChecked(False)
+        self.b_video_play.setAutoDefault(False)
+        self.b_video_play.setDefault(False)
         self.b_video_play.setObjectName("b_video_play")
         self.nav_settings_2 = QtWidgets.QPushButton(self.view_video)
         self.nav_settings_2.setGeometry(QtCore.QRect(990, 100, 131, 51))
@@ -226,29 +238,15 @@ class Ui_MainWindow(object):
         self.page_main.addWidget(self.view_video)
         self.view_exercise_declined = QtWidgets.QWidget()
         self.view_exercise_declined.setObjectName("view_exercise_declined")
-        self.label_7 = QtWidgets.QLabel(self.view_exercise_declined)
-        self.label_7.setGeometry(QtCore.QRect(190, 190, 691, 30))
-        font = QtGui.QFont()
-        font.setFamily("Segoe WP SemiLight")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_7.setFont(font)
-        self.label_7.setStyleSheet("border: none;\n"
-"background: transparent;\n"
-"color: rgb(112, 112, 112);")
-        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_7.setObjectName("label_7")
         self.f_exercise_declined_comment = QtWidgets.QPlainTextEdit(self.view_exercise_declined)
-        self.f_exercise_declined_comment.setGeometry(QtCore.QRect(390, 260, 291, 21))
+        self.f_exercise_declined_comment.setGeometry(QtCore.QRect(390, 300, 291, 21))
         self.f_exercise_declined_comment.setStyleSheet("border-style: outset;\n"
 "border-width: 1px;\n"
 "border-radius: 6px;\n"
 "background-color: rgb(255, 255, 255);")
         self.f_exercise_declined_comment.setObjectName("f_exercise_declined_comment")
         self.b_exercise_declined_confirm = QtWidgets.QPushButton(self.view_exercise_declined)
-        self.b_exercise_declined_confirm.setGeometry(QtCore.QRect(189, 350, 691, 30))
+        self.b_exercise_declined_confirm.setGeometry(QtCore.QRect(189, 380, 691, 30))
         font = QtGui.QFont()
         font.setFamily("Segoe WP SemiLight")
         font.setPointSize(14)
@@ -260,11 +258,19 @@ class Ui_MainWindow(object):
 "background: transparent;\n"
 "color: rgb(112, 112, 112);")
         self.b_exercise_declined_confirm.setObjectName("b_exercise_declined_confirm")
+        self.label_14 = QtWidgets.QLabel(self.view_exercise_declined)
+        self.label_14.setGeometry(QtCore.QRect(190, 100, 691, 101))
+        self.label_14.setStyleSheet("border: none;\n"
+"background: transparent;\n"
+"font: 28pt \"Segoe WP SemiLight\";\n"
+"color: rgb(112, 112, 112);")
+        self.label_14.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_14.setObjectName("label_14")
         self.page_main.addWidget(self.view_exercise_declined)
         self.view_exercise_grade = QtWidgets.QWidget()
         self.view_exercise_grade.setObjectName("view_exercise_grade")
         self.b_exercise_grade_1 = QtWidgets.QPushButton(self.view_exercise_grade)
-        self.b_exercise_grade_1.setGeometry(QtCore.QRect(360, 330, 41, 41))
+        self.b_exercise_grade_1.setGeometry(QtCore.QRect(350, 370, 41, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe WP")
         font.setPointSize(12)
@@ -278,7 +284,7 @@ class Ui_MainWindow(object):
         self.b_exercise_grade_1.setText("")
         self.b_exercise_grade_1.setObjectName("b_exercise_grade_1")
         self.b_exercise_grade_2 = QtWidgets.QPushButton(self.view_exercise_grade)
-        self.b_exercise_grade_2.setGeometry(QtCore.QRect(440, 330, 41, 41))
+        self.b_exercise_grade_2.setGeometry(QtCore.QRect(430, 370, 41, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe WP")
         font.setPointSize(12)
@@ -292,7 +298,7 @@ class Ui_MainWindow(object):
         self.b_exercise_grade_2.setText("")
         self.b_exercise_grade_2.setObjectName("b_exercise_grade_2")
         self.b_exercise_grade_3 = QtWidgets.QPushButton(self.view_exercise_grade)
-        self.b_exercise_grade_3.setGeometry(QtCore.QRect(520, 330, 41, 41))
+        self.b_exercise_grade_3.setGeometry(QtCore.QRect(510, 370, 41, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe WP")
         font.setPointSize(12)
@@ -306,7 +312,7 @@ class Ui_MainWindow(object):
         self.b_exercise_grade_3.setText("")
         self.b_exercise_grade_3.setObjectName("b_exercise_grade_3")
         self.b_exercise_grade_4 = QtWidgets.QPushButton(self.view_exercise_grade)
-        self.b_exercise_grade_4.setGeometry(QtCore.QRect(600, 330, 41, 41))
+        self.b_exercise_grade_4.setGeometry(QtCore.QRect(590, 370, 41, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe WP")
         font.setPointSize(12)
@@ -320,7 +326,7 @@ class Ui_MainWindow(object):
         self.b_exercise_grade_4.setText("")
         self.b_exercise_grade_4.setObjectName("b_exercise_grade_4")
         self.b_exercise_grade_5 = QtWidgets.QPushButton(self.view_exercise_grade)
-        self.b_exercise_grade_5.setGeometry(QtCore.QRect(680, 330, 41, 41))
+        self.b_exercise_grade_5.setGeometry(QtCore.QRect(670, 370, 41, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe WP")
         font.setPointSize(12)
@@ -334,7 +340,7 @@ class Ui_MainWindow(object):
         self.b_exercise_grade_5.setText("")
         self.b_exercise_grade_5.setObjectName("b_exercise_grade_5")
         self.label_8 = QtWidgets.QLabel(self.view_exercise_grade)
-        self.label_8.setGeometry(QtCore.QRect(190, 250, 691, 51))
+        self.label_8.setGeometry(QtCore.QRect(190, 280, 691, 51))
         font = QtGui.QFont()
         font.setFamily("Segoe WP SemiLight")
         font.setPointSize(16)
@@ -344,7 +350,8 @@ class Ui_MainWindow(object):
         self.label_8.setFont(font)
         self.label_8.setStyleSheet("border: none;\n"
 "font: 16pt \"Segoe WP SemiLight\";\n"
-"background: transparent;")
+"background: transparent;\n"
+"color: #707070;")
         self.label_8.setAlignment(QtCore.Qt.AlignCenter)
         self.label_8.setObjectName("label_8")
         self.label_11 = QtWidgets.QLabel(self.view_exercise_grade)
@@ -374,7 +381,7 @@ class Ui_MainWindow(object):
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
         self.label_9 = QtWidgets.QLabel(self.view_settings)
-        self.label_9.setGeometry(QtCore.QRect(370, 180, 170, 20))
+        self.label_9.setGeometry(QtCore.QRect(370, 200, 170, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe WP SemiLight")
         font.setPointSize(14)
@@ -387,7 +394,7 @@ class Ui_MainWindow(object):
 "color: rgb(112, 112, 112);")
         self.label_9.setObjectName("label_9")
         self.f_settings_check_absence = QtWidgets.QCheckBox(self.view_settings)
-        self.f_settings_check_absence.setGeometry(QtCore.QRect(370, 230, 170, 20))
+        self.f_settings_check_absence.setGeometry(QtCore.QRect(350, 250, 170, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe WP SemiLight")
         font.setPointSize(14)
@@ -398,10 +405,12 @@ class Ui_MainWindow(object):
         self.f_settings_check_absence.setStyleSheet("border: none;\n"
 "background: transparent;\n"
 "color: rgb(112, 112, 112);")
+        self.f_settings_check_absence.setShortcut("")
+        self.f_settings_check_absence.setChecked(False)
         self.f_settings_check_absence.setObjectName("f_settings_check_absence")
         self.f_settings_start_with_os = QtWidgets.QCheckBox(self.view_settings)
         self.f_settings_start_with_os.setEnabled(True)
-        self.f_settings_start_with_os.setGeometry(QtCore.QRect(370, 280, 170, 20))
+        self.f_settings_start_with_os.setGeometry(QtCore.QRect(350, 300, 170, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe WP SemiLight")
         font.setPointSize(14)
@@ -427,7 +436,7 @@ class Ui_MainWindow(object):
 "color: rgb(112, 112, 112);")
         self.b_settings_confirm.setObjectName("b_settings_confirm")
         self.f_settings_exercise_interval = QtWidgets.QSlider(self.view_settings)
-        self.f_settings_exercise_interval.setGeometry(QtCore.QRect(550, 180, 130, 20))
+        self.f_settings_exercise_interval.setGeometry(QtCore.QRect(550, 200, 130, 20))
         self.f_settings_exercise_interval.setStyleSheet("border: none;\n"
 "background: transparent;")
         self.f_settings_exercise_interval.setOrientation(QtCore.Qt.Horizontal)
@@ -461,10 +470,10 @@ class Ui_MainWindow(object):
         self.summary_calendar.setDateEditEnabled(True)
         self.summary_calendar.setObjectName("summary_calendar")
         self.label_10 = QtWidgets.QLabel(self.view_summary)
-        self.label_10.setGeometry(QtCore.QRect(450, 420, 101, 41))
+        self.label_10.setGeometry(QtCore.QRect(290, 420, 101, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semilight")
-        font.setPointSize(14)
+        font.setPointSize(16)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
@@ -476,7 +485,7 @@ class Ui_MainWindow(object):
         self.label_10.setWordWrap(False)
         self.label_10.setObjectName("label_10")
         self.summary_exercises_amount = QtWidgets.QLabel(self.view_summary)
-        self.summary_exercises_amount.setGeometry(QtCore.QRect(550, 420, 61, 41))
+        self.summary_exercises_amount.setGeometry(QtCore.QRect(380, 420, 61, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe WP SemiLight")
         font.setPointSize(16)
@@ -569,12 +578,13 @@ class Ui_MainWindow(object):
         self.main_training_today.setText(_translate("MainWindow", "TextLabel"))
         self.main_training_this_week.setText(_translate("MainWindow", "TextLabel"))
         self.main_training_this_month.setText(_translate("MainWindow", "TextLabel"))
+        self.label_15.setText(_translate("MainWindow", "Hello there!"))
         self.label_5.setText(_translate("MainWindow", "Did you finish your exercises?"))
         self.b_video_exercise_yes.setText(_translate("MainWindow", "Yes"))
         self.b_video_exercise_no.setText(_translate("MainWindow", "No"))
         self.video_id.setText(_translate("MainWindow", "1"))
-        self.label_7.setText(_translate("MainWindow", "Why did you give up?"))
         self.b_exercise_declined_confirm.setText(_translate("MainWindow", "Confirm"))
+        self.label_14.setText(_translate("MainWindow", "Why did you give up?"))
         self.label_8.setText(_translate("MainWindow", "<html><head/><body><p>How did you like your exercise?</p></body></html>"))
         self.label_11.setText(_translate("MainWindow", "Congratulations!"))
         self.label_4.setText(_translate("MainWindow", "settings"))
@@ -585,6 +595,7 @@ class Ui_MainWindow(object):
         self.label_10.setText(_translate("MainWindow", "exercises"))
         self.summary_exercises_amount.setText(_translate("MainWindow", "0"))
         self.label_13.setText(_translate("MainWindow", "summary"))
+import appimages_rc
 
 
 if __name__ == "__main__":
