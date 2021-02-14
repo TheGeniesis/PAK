@@ -188,7 +188,7 @@ class Ui_MainWindow(object):
 "border:transparent;\n"
 "}\n"
 "\n"
-"#b_video_play:pressed  {\n"
+"#b_video_play:pause  {\n"
 "image: url(:/playstop/png/Group 2.png);\n"
 "border: transparent;\n"
 "}\n"
@@ -595,7 +595,6 @@ class Ui_MainWindow(object):
         self.label_10.setText(_translate("MainWindow", "exercises"))
         self.summary_exercises_amount.setText(_translate("MainWindow", "0"))
         self.label_13.setText(_translate("MainWindow", "summary"))
-import appimages_rc
 
 
 if __name__ == "__main__":
