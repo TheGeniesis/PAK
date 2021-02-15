@@ -22,7 +22,7 @@ class TrainingUrlFixture:
                                description="Bending for overall back relaxation", priority=2)
         session.add(ins)
         ins = TrainingUrlModel(name="Side Bends", url=os.path.join(Config().getConfig()["path"], 'video'
-                                                                   ,'Side bends.mp4'),
+                                                                   ,'Side-bends.wmv'),
                                description="Sideways bending to train lats and obliques", priority=3)
         session.add(ins)
         ins = TrainingUrlModel(name="Biceps Stretch", url=os.path.join(Config().getConfig()["path"], 'video',
@@ -52,7 +52,7 @@ class TrainingUrlFixture:
                                description="Overall body exercise", priority=10)
         session.add(ins)
         ins = TrainingUrlModel(name="Torso Twist", url=os.path.join(Config().getConfig()["path"], 'video',
-                                                                    'Torso twist.mp4'),
+                                                                    'Torso-twist.wmv'),
                                description="Spinal mobility exercise", priority=11)
         session.add(ins)
         ins = TrainingUrlModel(name="Forward bending", url=os.path.join(Config().getConfig()["path"], 'video',
