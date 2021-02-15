@@ -166,19 +166,20 @@ class Ui_MainWindow(object):
         self.f_video_length.setObjectName("f_video_length")
         self.video_box = QtWidgets.QWidget(self.video_widget)
         self.video_box.setGeometry(QtCore.QRect(20, 20, 571, 221))
-        self.video_box.setStyleSheet("border-width: 2px;\n"
+        self.video_box.setStyleSheet(
+                "border-width: 2px;\n"
 "border-radius: 0px;\n"
 "border-color: #707070;")
         self.video_box.setObjectName("video_box")
         self.video_id = QtWidgets.QLabel(self.video_box)
         self.video_id.setGeometry(QtCore.QRect(290, 40, 51, 51))
         self.video_id.setStyleSheet("border: none;\n"
-"color: transparent;")
+"background-color: transparent;")
         self.video_id.setAlignment(QtCore.Qt.AlignCenter)
         self.video_id.setObjectName("video_id")
         self.video_media_player = QtWidgets.QWidget(self.video_box)
         self.video_media_player.setGeometry(QtCore.QRect(40, 20, 241, 171))
-        self.video_media_player.setStyleSheet("border: none;")
+        self.video_media_player.setStyleSheet("border: none;" )
         self.video_media_player.setObjectName("video_media_player")
         self.b_video_play = QtWidgets.QPushButton(self.video_widget)
         self.b_video_play.setGeometry(QtCore.QRect(10, 290, 591, 41))
