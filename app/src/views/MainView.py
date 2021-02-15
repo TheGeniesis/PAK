@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-import ui.appimages
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -188,13 +187,13 @@ class Ui_MainWindow(object):
 "border:transparent;\n"
 "}\n"
 "\n"
-"#b_video_play:pause  {\n"
+"#b_video_play:checked {\n"
 "image: url(:/playstop/png/Group 2.png);\n"
 "border: transparent;\n"
 "}\n"
 "")
         self.b_video_play.setText("")
-        self.b_video_play.setCheckable(False)
+        self.b_video_play.setCheckable(True)
         self.b_video_play.setChecked(False)
         self.b_video_play.setAutoDefault(False)
         self.b_video_play.setDefault(False)
@@ -569,7 +568,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.page_main.setCurrentIndex(0)
+        self.page_main.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -595,6 +594,7 @@ class Ui_MainWindow(object):
         self.label_10.setText(_translate("MainWindow", "exercises"))
         self.summary_exercises_amount.setText(_translate("MainWindow", "0"))
         self.label_13.setText(_translate("MainWindow", "summary"))
+import ui.appimages
 
 
 if __name__ == "__main__":
