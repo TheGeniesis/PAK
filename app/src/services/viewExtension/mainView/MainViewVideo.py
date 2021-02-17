@@ -4,7 +4,6 @@ from PyQt5.QtCore import QUrl
 from app.src.models.BaseModel import BaseModel
 from app.src.models.TrainingUrlModel import TrainingUrlModel
 from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
-
 from app.src.views.MainView import Ui_MainWindow
 
 
@@ -13,7 +12,10 @@ class MainViewVideo:
 
     def configViewVideo(self, view: Ui_MainWindow):
         self.view = view
-        view.video_box = QVideoWidget()
+
+        view.video_widget = QVideoWidget(view.video_box)
+        view.video_box.show()
+        view.video_widget.setFixedSize(view.video_box.size())
 
         base = BaseModel()
         Session = sessionmaker(bind=base.getEngine())
@@ -22,15 +24,14 @@ class MainViewVideo:
         trainingUrl = session.query(TrainingUrlModel).order_by(TrainingUrlModel.priority).first()
 
         view.video_id = trainingUrl.id
-        view.video_media_player = QMediaPlayer(None, QMediaPlayer.VideoSurface)
-
+        view.video_media_player = QMediaPlayer(None, QMediaPlayer.StreamPlayback)
         view.f_video_length.setRange(0, 0)
         view.f_video_length.sliderMoved.connect(self.setPosition)
 
         view.video_media_player.setMedia(
             QMediaContent(QUrl.fromLocalFile(trainingUrl.url)))
 
-        view.video_media_player.setVideoOutput(view.video_box)
+        view.video_media_player.setVideoOutput(view.video_widget)
         view.video_media_player.positionChanged.connect(self.positionChanged)
         view.video_media_player.durationChanged.connect(self.durationChanged)
 
@@ -44,8 +45,9 @@ class MainViewVideo:
         if view.video_media_player.state() == QMediaPlayer.PlayingState:
             view.video_media_player.pause()
             return
-
         view.video_media_player.play()
+
+
 
     def positionChanged(self, position):
         self.view.f_video_length.setValue(position)
