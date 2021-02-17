@@ -23,8 +23,6 @@ class MainViewVideo:
 
         trainingUrl = session.query(TrainingUrlModel).order_by(TrainingUrlModel.priority).first()
 
-
-
         view.video_id = trainingUrl.id
         view.video_media_player = QMediaPlayer(None, QMediaPlayer.StreamPlayback)
         view.f_video_length.setRange(0, 0)
